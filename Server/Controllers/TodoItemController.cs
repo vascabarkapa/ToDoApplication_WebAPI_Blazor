@@ -64,8 +64,8 @@ namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
             return Ok(await GetDbTodoItems());
         }
 
-        [HttpPut("{id}")]
-        public async Task<ActionResult<List<TodoItem>>> UpdateTodoItem(TodoItem todoItem, int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<List<TodoItem>>> DeleteTodoItem(int id)
         {
             var dbTodoItem = await _db.TodoItems.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -74,12 +74,7 @@ namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
                 return NotFound("Sorry, there is not To Do Item");
             }
 
-            dbTodoItem.Name = todoItem.Name;
-            dbTodoItem.Description = todoItem.Description;
-            dbTodoItem.DateAndTime = todoItem.DateAndTime;
-            dbTodoItem.Priority = todoItem.Priority;
-            dbTodoItem.isDone = todoItem.isDone;
-
+            _db.TodoItems.Remove(dbTodoItem);
             await _db.SaveChangesAsync();
 
             return Ok(await GetDbTodoItems());
