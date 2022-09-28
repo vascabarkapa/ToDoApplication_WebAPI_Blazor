@@ -60,7 +60,7 @@ else
     {
         if (Id == null)
         {
-            // Add new Task
+
         }
         else
         {
@@ -70,6 +70,18 @@ else
 
     async Task HandleSubmit()
     {
+        if(Id == null)
+        {
+            await TodoItemService.CreateTodoItem(todo);
+        }
+        else
+        {
+            await TodoItemService.UpdateTodoItem(todo);
+        }
+    }
 
+    async Task DeleteTodoItem()
+    {
+        await TodoItemService.DeleteTodoItem(todo.Id);
     }
 }
