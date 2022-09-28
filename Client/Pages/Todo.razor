@@ -24,7 +24,7 @@ else
     </div>
     <div>
         <label for="date_time">Date and Time</label>
-        <InputText id="date_time" @bind-Value="todo.DateAndTime" class="form-control"></InputText>
+        <InputDate id="date_time" @bind-Value="todo.DateAndTime" class="form-control"></InputDate>
     </div>
     <div>
         <label for="priority">Priority</label>
@@ -37,7 +37,7 @@ else
     </div>
     <div>
         <label for="is_done">Done</label>
-        <InputText id="is_done" @bind-Value="todo.isDone" class="form-control"></InputText>
+        <InputCheckbox id="is_done" @bind-Value="todo.isDone" class="form-control"></InputCheckbox>
     </div>
     <button type="submit" class="btn btn-primary">@btnText</button>
 </EditForm>
