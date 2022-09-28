@@ -53,6 +53,35 @@ namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
                 return NotFound("Sorry, there is not To Do Item");
             }
 
+            dbTodoItem.Name = todoItem.Name;
+            dbTodoItem.Description = todoItem.Description;
+            dbTodoItem.DateAndTime = todoItem.DateAndTime;
+            dbTodoItem.Priority = todoItem.Priority;
+            dbTodoItem.isDone = todoItem.isDone;
+
+            await _db.SaveChangesAsync();
+
+            return Ok(await GetDbTodoItems());
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<List<TodoItem>>> UpdateTodoItem(TodoItem todoItem, int id)
+        {
+            var dbTodoItem = await _db.TodoItems.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (dbTodoItem == null)
+            {
+                return NotFound("Sorry, there is not To Do Item");
+            }
+
+            dbTodoItem.Name = todoItem.Name;
+            dbTodoItem.Description = todoItem.Description;
+            dbTodoItem.DateAndTime = todoItem.DateAndTime;
+            dbTodoItem.Priority = todoItem.Priority;
+            dbTodoItem.isDone = todoItem.isDone;
+
+            await _db.SaveChangesAsync();
+
             return Ok(await GetDbTodoItems());
         }
 
