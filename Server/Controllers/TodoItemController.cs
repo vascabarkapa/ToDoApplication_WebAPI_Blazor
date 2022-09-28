@@ -44,10 +44,14 @@ namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<List<TodoItem>>> UpdateTodoItem(TodoItem todoItem)
+        public async Task<ActionResult<List<TodoItem>>> UpdateTodoItem(TodoItem todoItem, int id)
         {
-            _db.TodoItems.Add(todoItem);
-            await _db.SaveChangesAsync();
+            var dbTodoItem = await _db.TodoItems.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(dbTodoItem == null)
+            {
+                return NotFound("Sorry, there is not To Do Item");
+            }
 
             return Ok(await GetDbTodoItems());
         }
