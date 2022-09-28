@@ -13,9 +13,16 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
 
         public List<TodoItem> TodoItems { get; set; } = new List<TodoItem>();
 
-        public Task GetSingleTodoItem(int id)
+        public async Task<TodoItem> GetSingleTodoItem(int id)
         {
-            throw new NotImplementedException();
+            var response = await _http.GetFromJsonAsync<TodoItem>($"api/todoItem/{id}");
+
+            if (response != null)
+            {
+                return response;
+            }
+
+            throw new Exception("To Do not found!");
         }
 
         public async Task GetTodoItems()

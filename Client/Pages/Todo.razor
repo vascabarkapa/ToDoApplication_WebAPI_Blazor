@@ -4,13 +4,13 @@
 
 if(Id==null)
 {
-    <PageTitle>Add the new Task</PageTitle>
-    <h3>Add the new Task</h3>
+<PageTitle>Add the new Task</PageTitle>
+<h3>Add the new Task</h3>
 }
 else
 {
-    <PageTitle>Edit @todo.Name</PageTitle>
-    <h3>Edit @todo.Name</h3>
+<PageTitle>Edit @todo.Name</PageTitle>
+<h3>Edit @todo.Name</h3>
 }
 
 @code {
@@ -18,4 +18,16 @@ else
     public int? Id { get; set; }
 
     TodoItem todo = new TodoItem { };
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id == null)
+        {
+            // Add new Task
+        }
+        else
+        {
+            todo = await TodoItemService.GetSingleTodoItem((int)Id);
+        }
+    }
 }

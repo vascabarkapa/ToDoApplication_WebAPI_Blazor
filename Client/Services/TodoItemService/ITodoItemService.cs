@@ -6,6 +6,6 @@
 
         Task GetTodoItems();
 
-        Task GetSingleTodoItem(int id);
+        Task<TodoItem> GetSingleTodoItem(int id);
     }
 }
