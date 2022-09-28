@@ -13,11 +13,48 @@ else
     <h3>Edit @todo.Name</h3>
 }
 
+<EditForm Model="todo" OnSubmit="HandleSubmit">
+    <div>
+        <label for="name">Name</label>
+        <InputText id="name" @bind-Value="todo.Name" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="description">Description</label>
+        <InputText id="description" @bind-Value="todo.Description" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="date_time">Date and Time</label>
+        <InputText id="date_time" @bind-Value="todo.DateAndTime" class="form-control"></InputText>
+    </div>
+    <div>
+        <label for="priority">Priority</label>
+        <InputSelect id="priority" @bind-Value="todo.Priority" class="form-select">
+            <option value="" selected>Select a priority</option>
+            <option value="High">High</option>
+            <option value="Medium">Meduium</option>
+            <option value="Low">Low</option>
+        </InputSelect>
+    </div>
+    <div>
+        <label for="is_done">Done</label>
+        <InputText id="is_done" @bind-Value="todo.isDone" class="form-control"></InputText>
+    </div>
+    <button type="submit" class="btn btn-primary">@btnText</button>
+</EditForm>
+
 @code {
     [Parameter]
     public int? Id { get; set; }
 
+    string btnText = string.Empty;
+
     TodoItem todo = new TodoItem { };
+
+    protected override async Task OnInitializedAsync()
+    {
+        btnText = Id == null ? "Add" : "Update";
+        await TodoItemService.GetTodoItems();
+    }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -29,5 +66,10 @@ else
         {
             todo = await TodoItemService.GetSingleTodoItem((int)Id);
         }
+    }
+
+    async Task HandleSubmit()
+    {
+
     }
 }
