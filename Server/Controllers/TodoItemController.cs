@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ToDoApplication_WebAPI_Blazor.Server.Data;
 
 namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
 {
@@ -7,23 +8,26 @@ namespace ToDoApplication_WebAPI_Blazor.Server.Controllers
     [ApiController]
     public class TodoItemController : ControllerBase
     {
-        public static List<TodoItem> todoItems = new List<TodoItem> {
-            new TodoItem { Id=1, Name="Thesis", Description="Final the final thesis", DateAndTime=DateTime.Now, Priority="Medium", isDone=false },
-            new TodoItem { Id=2, Name="Final", Description="Final the FEE", DateAndTime=DateTime.Now, Priority="High", isDone=false },
-        };
+        private readonly ApplicationDbContext _db;
+
+        public TodoItemController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
 
         [HttpGet]
         public async Task<ActionResult<List<TodoItem>>> GetTodoItems()
         {
+            var todoItems = await _db.TodoItems.ToListAsync();
             return Ok(todoItems);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<List<TodoItem>>> GetSingleTodoItem(int id)
         {
-            var todoItem = todoItems.FirstOrDefault(x => x.Id == id);
+            var todoItem = await _db.TodoItems.FirstOrDefaultAsync(x => x.Id == id);
 
-            if(todoItem == null)
+            if (todoItem == null)
             {
                 return NotFound("Sorry, there is not To Do Item");
             }
