@@ -1,4 +1,5 @@
 global using ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService;
+global using ToDoApplication_WebAPI_Blazor.Shared;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using ToDoApplication_WebAPI_Blazor.Client;
