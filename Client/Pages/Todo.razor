@@ -40,6 +40,7 @@ else
         <InputCheckbox id="is_done" @bind-Value="todo.isDone" class="form-control"></InputCheckbox>
     </div>
     <button type="submit" class="btn btn-primary">@btnText</button>
+    <button type="button" class="btn btn-danger" @onclick="DeleteTodoItem">Delete</button>
 </EditForm>
 
 @code {
