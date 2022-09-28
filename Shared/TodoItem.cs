@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoApplication_WebAPI_Blazor.Shared
 {
-    internal class TodoItem
+    public class TodoItem
     {
         public int Id { get; set; }
 
