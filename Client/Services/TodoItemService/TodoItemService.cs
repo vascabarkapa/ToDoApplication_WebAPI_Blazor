@@ -1,14 +1,17 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.AspNetCore.Components;
+using System.Net.Http.Json;
 
 namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
 {
     public class TodoItemService : ITodoItemService
     {
         private readonly HttpClient _http;
+        private readonly NavigationManager _navigationManager;
 
-        public TodoItemService(HttpClient http)
+        public TodoItemService(HttpClient http, NavigationManager navigationManager)
         {
             _http = http;
+            _navigationManager = navigationManager;
         }
 
         public List<TodoItem> TodoItems { get; set; } = new List<TodoItem>();
@@ -21,6 +24,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
             if(response != null)
             {
                 TodoItems = response;
+                _navigationManager.NavigateTo("todoItems");
             }
 
             throw new Exception("Unexpected error on adding new Task");
@@ -34,6 +38,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
             if (response != null)
             {
                 TodoItems = response;
+                _navigationManager.NavigateTo("todoItems");
             }
 
             throw new Exception("Unexpected error on adding new Task");
@@ -47,6 +52,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
             if (response != null)
             {
                 TodoItems = response;
+                _navigationManager.NavigateTo("todoItems");
             }
 
             throw new Exception("Unexpected error on adding new Task");
