@@ -7,5 +7,11 @@
         Task GetTodoItems();
 
         Task<TodoItem> GetSingleTodoItem(int id);
+
+        Task CreateTodoItem(TodoItem todoItem);
+
+        Task UpdateTodoItem(TodoItem todoItem);
+
+        Task DeleteTodoItem(int id);
     }
 }
