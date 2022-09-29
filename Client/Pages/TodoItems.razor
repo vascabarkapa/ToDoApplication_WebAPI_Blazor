@@ -60,6 +60,7 @@
         }
     </tbody>
 </table>
+<button class="btn btn-primary" @onclick="CreateNewTask">Add new Task</button>
 
 @code {
     protected override async Task OnInitializedAsync()
@@ -70,5 +71,10 @@
     void ShowTodo(int id)
     {
         NavigationManager.NavigateTo($"todo/{id}");
+    }
+
+    void CreateNewTask()
+    {
+        NavigationManager.NavigateTo("/todo");
     }
 }
