@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApplication_WebAPI_Blazor.Server", "Server\ToDoApplication_WebAPI_Blazor.Server.csproj", "{0987CAED-124E-4878-81A7-02B8FAA6159B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApplication_WebAPI_Blazor.Server", "Server\ToDoApplication_WebAPI_Blazor.Server.csproj", "{0987CAED-124E-4878-81A7-02B8FAA6159B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApplication_WebAPI_Blazor.Client", "Client\ToDoApplication_WebAPI_Blazor.Client.csproj", "{29527CC9-35C7-4689-9E66-6F05C9B3CF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApplication_WebAPI_Blazor.Client", "Client\ToDoApplication_WebAPI_Blazor.Client.csproj", "{29527CC9-35C7-4689-9E66-6F05C9B3CF28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoApplication_WebAPI_Blazor.Shared", "Shared\ToDoApplication_WebAPI_Blazor.Shared.csproj", "{72ACFF36-D367-4491-887F-649D800AECA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoApplication_WebAPI_Blazor.Shared", "Shared\ToDoApplication_WebAPI_Blazor.Shared.csproj", "{72ACFF36-D367-4491-887F-649D800AECA8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
