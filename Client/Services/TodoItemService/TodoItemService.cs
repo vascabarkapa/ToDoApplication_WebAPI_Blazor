@@ -27,7 +27,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
                 _navigationManager.NavigateTo("todoItems");
             }
 
-            throw new Exception("Unexpected error on adding new Task");
+            // throw new Exception("Unexpected error on adding new Task");
         }
 
         public async Task UpdateTodoItem(TodoItem todoItem)
@@ -41,7 +41,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
                 _navigationManager.NavigateTo("todoItems");
             }
 
-            throw new Exception("Unexpected error on adding new Task");
+            // throw new Exception("Unexpected error on adding new Task");
         }
 
         public async Task DeleteTodoItem(int id)
@@ -55,7 +55,7 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
                 _navigationManager.NavigateTo("todoItems");
             }
 
-            throw new Exception("Unexpected error on adding new Task");
+            // throw new Exception("Unexpected error on adding new Task");
         }
 
         public async Task<TodoItem> GetSingleTodoItem(int id)

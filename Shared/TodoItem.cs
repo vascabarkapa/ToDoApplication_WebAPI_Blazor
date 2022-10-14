@@ -19,12 +19,14 @@ namespace ToDoApplication_WebAPI_Blazor.Shared
         public string Description { get; set; }
 
         [Required]
-        public DateTime DateAndTime { get; set; }
+        [Display(Name = "Date and Time")]
+        public DateTime? DateAndTime { get; set; }
 
         [Required]
         public string Priority { get; set; }
 
         [Required]
+        [Display(Name = "Done")]
         public bool isDone { get; set; }
     }
 }
