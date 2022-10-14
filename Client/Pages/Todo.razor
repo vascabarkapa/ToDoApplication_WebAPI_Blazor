@@ -17,34 +17,34 @@ else
 
 <EditForm Model="todo" OnSubmit="HandleSubmit">
     <div class="mt-4">
-            <div class="mb-3">
-        <label for="name">Name</label>
-        <InputText id="name" @bind-Value="todo.Name" class="form-control"></InputText>
-    </div>
-    <div class="mb-3">
-        <label for="description">Description</label>
-        <InputText id="description" @bind-Value="todo.Description" class="form-control"></InputText>
-    </div>
-    <div class="mb-3">
-        <label for="date_time">Date and Time</label>
-        <InputDate id="date_time" @bind-Value="todo.DateAndTime" class="form-control"></InputDate>
-    </div>
-    <div class="mb-3">
-        <label for="priority">Priority</label>
-        <InputSelect id="priority" @bind-Value="todo.Priority" class="form-select">
-            <option value="" selected>Select a priority</option>
-            <option value="High">High</option>
-            <option value="Medium">Medium</option>
-            <option value="Low">Low</option>
-        </InputSelect>
-    </div>
-    <div class="mb-3">
-        <label for="is_done">Done</label>
-        <InputCheckbox id="is_done" @bind-Value="todo.isDone" class="form-check-input"></InputCheckbox>
-    </div>
-    <br />
-    <button type="submit" class="btn btn-primary" style="width:150px">@btnText</button>
-    <button type="button" class="btn btn-danger" @onclick="DeleteTodoItem" style="width:150px">Delete</button>
+        <div class="mb-3">
+            <label for="name">Name</label>
+            <InputText id="name" @bind-Value="todo.Name" class="form-control"></InputText>
+        </div>
+        <div class="mb-3">
+            <label for="description">Description</label>
+            <InputText id="description" @bind-Value="todo.Description" class="form-control"></InputText>
+        </div>
+        <div class="mb-3">
+            <label for="date_time">Date and Time</label>
+            <InputDate id="date_time" @bind-Value="todo.DateAndTime" class="form-control"></InputDate>
+        </div>
+        <div class="mb-3">
+            <label for="priority">Priority</label>
+            <InputSelect id="priority" @bind-Value="todo.Priority" class="form-select">
+                <option value="" selected>Select a priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </InputSelect>
+        </div>
+        <div class="mb-3">
+            <label for="is_done">Done</label>
+            <InputCheckbox id="is_done" @bind-Value="todo.isDone" class="form-check-input"></InputCheckbox>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary" style="width:150px">@btnText</button>
+        <button type="button" class="btn btn-danger" @onclick="DeleteTodoItem" style="width:150px">Delete</button>
     </div>
 </EditForm>
 
@@ -76,7 +76,7 @@ else
 
     async Task HandleSubmit()
     {
-        if(Id == null)
+        if (Id == null)
         {
             await TodoItemService.CreateTodoItem(todo);
         }
