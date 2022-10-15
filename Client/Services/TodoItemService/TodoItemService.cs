@@ -79,5 +79,10 @@ namespace ToDoApplication_WebAPI_Blazor.Client.Services.TodoItemService
                 TodoItems = response;
             }
         }
+
+        public void BackToList()
+        {
+            _navigationManager.NavigateTo("todoItems");
+        }
     }
 }
